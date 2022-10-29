@@ -6,7 +6,7 @@ const Products = ({items}) => {
   return ( 
     <div className="Products">
       {items.map(product => (
-        <Card style={{ width: '18rem' }} display='flex' text-align="center">
+        <Card style={{ width: '18rem', margin: "1em" }} display='flex' text-align="center">
           <Card.Img variant="top" src={product.image}/>
           <Card.Body>
             <Card.Title>{product.name}</Card.Title>

@@ -3,11 +3,24 @@ import Button from "react-bootstrap/Button";
 import Form from "react-bootstrap/Form";
 
 
-function Search({ setCriteria }) {
+function Search({ setSearchvalue, searchValue }) {
   const onSearchValueChange = (event) => {
     console.log(event.target.value);
-    setCriteria(event.target.value);
+    setSearchvalue(event.target.value);
   };
+
+  // let searchProduct = [];
+
+  // if (!criteria.length >=1) {
+  //   searchProduct = criteria;    
+  // }else {
+  //   setCriteria =todos.filter(todo => {
+  //     const todoText = todo.text.toLowerCase();
+  //     const searchText = serchValue.toLowerCase();
+  //     return todoText.includes(searchText);
+  //   })
+  // };
+
   return (
     <Form className="d-flex">
       <Form.Control

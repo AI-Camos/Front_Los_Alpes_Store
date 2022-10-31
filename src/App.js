@@ -7,7 +7,7 @@ import { Search } from "./Components/Search";
 
 function App() {
   const [products, setProducts] = useState([]);
-  const [criteria, setCriteria] = useState("");
+  const [searchValue, setSearchvalue] = useState("");
   let filteredProducts = [];
 
   useEffect(() => {
@@ -19,17 +19,25 @@ function App() {
       });
   }, []);
 
-  if (criteria === "") {
+  if (searchValue === "") {
     filteredProducts = products;
   } else {
-    filteredProducts = products.filter((product) => product.name.includes(criteria));
+    filteredProducts = products.filter((product) => {
+      console.log(product.name);
+      const productText = product.name.toLowerCase();
+      console.log(productText);
+      const searchText = searchValue.toLowerCase();
+      console.log(searchText);
+      return productText.includes(searchText);
+    });
   }
 
   return (
     <div className="App">
       <Header />
-      <Search setCriteria={setCriteria} />
+      <Search setSearchvalue={setSearchvalue} searchValue={searchValue} />
       <Products items={filteredProducts} />
+      <h1>{searchValue}</h1>
     </div>
   );
 }

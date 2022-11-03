@@ -2,6 +2,8 @@ import Button from 'react-bootstrap/Button';
 import Card from 'react-bootstrap/Card';
 
 const Products = ({items}) => {
+  
+
   return ( 
     <div className="Products">
       {items.map(product => (
